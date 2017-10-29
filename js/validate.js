@@ -24,19 +24,25 @@ function validateField(fieldElem, infoMessage, validateFn) {
 	// if there is a previous span tag (e.g., previousSpan != null), 
 	//	remove the previous span by calling the 'removeChild()' function on the previous span's parent 
 	// 	(hint: see Duckett 2014, p. 225)
-	var removeEl = document.getElementbyTagName('li')[3];
+	var removeEl = document.getElementsbyTagName('li')[3];
 
 	var containerEl = removeEl.parentNode;
 
 	containerEl.removeChild(removeEl);
-	
+
 	// adding an element to the DOM tree (hint: see Duckett 2014, p. 223)
 	// create a new span element  
-	
+	var newEl = document.createElement('li');
+
 	// create a new textnode whose content is the value of 'infoMessage' 
+	var newText = document.createTextNode('Error message')
 
 	// append your text node to the span element
+	newEl.appendChild(newText);
 
+	var position = document.getElementsbyTagName('ul')[1];
+
+	position.appendChild(newEl);
 
 	// if nothing is entered into the text box (fieldElem.value.length == 0)
 	//	hide the span by setting its '.style.display' property 
