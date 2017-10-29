@@ -1,7 +1,14 @@
-var elUsername = document.getElementbyId('username');
-var usernameMsg = 'Username must contain more than 5 letters';
-var elEmail = document.getElementbyId('email');
-var emailMsg = document.getElementbyId('emailmsg')
+// 1. Set variables
+
+// the html element with id 'username'
+var elUsername = 
+// the html element with id 'email'
+var elEmail = 
+//  'username' validation message
+var nameMsg = 
+// 'email' validation message
+var emailMsg = 
+
 
 // 2. Define functions
 
@@ -58,16 +65,29 @@ function validateField(fieldElem, infoMessage, validateFn) {
  *  Bonus: For extra credit toward your Assignments average, check if it also only contains letter or numbers.
  *	returns: true if it is; false if it isn't
  */ 
+function checkUsername() {
 
-function checkUsername(minLength) {
-	if (elUsername.value.length < minLength) {
-		//Set the error message
-		elMsg.textContent = 'Username must be ' + minLength + ' characters or more';
-	} else {
-		elMsg.innerHTML='Okay';
-	}
 }
 
-elUsername.addEventListener('blur', function() {
-	checkUsername(5);
-}, false);
+/* 
+ * Function: checkEmail
+ * --------------------
+ *	This function checks whether the text entered into the email field contains an '@' symbol
+ * 
+ *	returns: true if it passes; false if it doesn't
+ */ 
+function checkEmail() {
+
+} 
+
+// 3. Add event listeners
+
+// add a 'blur' event listener to 'elUsername' that calls 'validateField()'
+// use your variables (part 1) and functions (part 2) in the arguments 
+// hint: see Duckett 2014, p. 257)
+
+
+
+// add a 'blur' event listener to 'elEmail' that calls 'validateField()'
+// use your variables (part 1) and functions (part 2) in the arguments
+
