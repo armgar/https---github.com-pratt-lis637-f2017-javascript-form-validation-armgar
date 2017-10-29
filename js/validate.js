@@ -1,7 +1,7 @@
 var elUsername = document.getElementbyId('username');
 var usernameMsg = document.createElement('li');
 var elEmail = document.getElementbyId('email');
-var emailMsg = document.createElement('li')
+var emailMsg = document.createElement('li');
 
 // 2. Define functions
 
@@ -20,12 +20,16 @@ var emailMsg = document.createElement('li')
 function validateField(fieldElem, infoMessage, validateFn) {
 
 	// create a variable that stores the value of fieldElem.nextSibling (this is where the span tag will be)
-
+	var userField = document.getElementbyId('fieldElem.nextSibling');
 	// if there is a previous span tag (e.g., previousSpan != null), 
 	//	remove the previous span by calling the 'removeChild()' function on the previous span's parent 
 	// 	(hint: see Duckett 2014, p. 225)
+	var removeEl = document.getElementbyTagName('li')[3];
 
+	var containerEl = removeEl.parentNode;
 
+	containerEl.removeChild(removeEl);
+	
 	// adding an element to the DOM tree (hint: see Duckett 2014, p. 223)
 	// create a new span element  
 	
@@ -60,9 +64,9 @@ function validateField(fieldElem, infoMessage, validateFn) {
  */ 
 
 function checkUsername(minLength) {
-	if (elUsername.value.length < minLength) {
+	if (elUsername.value.length < 5) {
 		//Set the error message
-		elMsg.textContent = 'Username must be ' + minLength + ' characters or more';
+		elMsg.textContent = 'Username must be ' + 5 + ' characters or more';
 	} else {
 		elMsg.innerHTML='Okay';
 	}
