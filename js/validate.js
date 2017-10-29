@@ -1,7 +1,7 @@
 var elUsername = document.getElementbyId('username');
-var usernameMsg = 'Username must contain more than 5 letters';
+var usernameMsg = document.createElement('li');
 var elEmail = document.getElementbyId('email');
-var emailMsg = document.getElementbyId('emailmsg')
+var emailMsg = document.createElement('li')
 
 // 2. Define functions
 
