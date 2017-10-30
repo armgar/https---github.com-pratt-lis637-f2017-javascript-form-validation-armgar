@@ -1,7 +1,7 @@
 var elUsername = document.getElementbyId('username');
-var usernameMsg = document.createElement('li');
+var usernameMsg = '';
 var elEmail = document.getElementbyId('email');
-var emailMsg = document.createElement('li');
+var emailMsg = '';
 
 // 2. Define functions
 
@@ -20,29 +20,25 @@ var emailMsg = document.createElement('li');
 function validateField(fieldElem, infoMessage, validateFn) {
 
 	// create a variable that stores the value of fieldElem.nextSibling (this is where the span tag will be)
-	var userField = document.getElementbyId('fieldElem.nextSibling');
-	// if there is a previous span tag (e.g., previousSpan != null), 
-	//	remove the previous span by calling the 'removeChild()' function on the previous span's parent 
-	// 	(hint: see Duckett 2014, p. 225)
-	var removeEl = document.getElementsbyTagName('li')[3];
+	var previousSpan = fieldElem.nextSibling; 
+	if (previousSpan != null) {	
+		// if there is a previous span tag (e.g., previousSpan != null), 
+		//	remove the previous span by calling the 'removeChild()' function on the previous span's parent 
+		// 	(hint: see Duckett 2014, p. 225)
+		var containerEl = previousSpan.parentNode;
 
-	var containerEl = removeEl.parentNode;
-
-	containerEl.removeChild(removeEl);
+		containerEl.removeChild(previousSpan);
+	}
 
 	// adding an element to the DOM tree (hint: see Duckett 2014, p. 223)
 	// create a new span element  
-	var newEl = document.createElement('li');
+	var newEl = document.createElement('span');
 
 	// create a new textnode whose content is the value of 'infoMessage' 
-	var newText = document.createTextNode('Error message')
+	var newText = document.createTextNode('Error message');
 
 	// append your text node to the span element
 	newEl.appendChild(newText);
-
-	var position = document.getElementsbyTagName('ul')[1];
-
-	position.appendChild(newEl);
 
 	// if nothing is entered into the text box (fieldElem.value.length == 0)
 	//	hide the span by setting its '.style.display' property 
@@ -72,12 +68,27 @@ function validateField(fieldElem, infoMessage, validateFn) {
 function checkUsername(minLength) {
 	if (elUsername.value.length < 5) {
 		//Set the error message
-		elMsg.textContent = 'Username must be ' + 5 + ' characters or more';
+		return false;
 	} else {
 		elMsg.innerHTML='Okay';
+		return true;
 	}
 }
 
 elUsername.addEventListener('blur', function() {
-	checkUsername(5);
+	validateField(elUsername, usernameMsg, checkUsername);
+}, false);
+
+function checkEmail() {
+	if (elEmail.value.contains('@')) {
+		//Set the error message
+		return true;
+	} else {
+		elMsg.innerHTML='Okay';
+		return false;
+	}
+}
+
+elEmail.addEventListener('blur', function() {
+	validateField(elEmail, emailMsg, checkEmail);
 }, false);
