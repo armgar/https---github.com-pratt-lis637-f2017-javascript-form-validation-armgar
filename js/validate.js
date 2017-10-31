@@ -41,9 +41,18 @@ function validateField(fieldElem, infoMessage, validateFn) {
 	newEl.appendChild(newText);
 
 	// if nothing is entered into the text box (fieldElem.value.length == 0)
-	//	hide the span by setting its '.style.display' property 
-
-
+	// hide the span by setting its '.style.display' property 
+	if (fieldElem.value.length == 0) {
+		newEl.style.display = "none";
+	} else {
+		if (validateFn() == true) {
+			newEl.innerHTML = "OK";
+			newEl.style.className = 'ok';
+		} else {
+			newEl.style.className = 'error';
+			newEl.style.display = 'initial';
+		}
+	}
 	// else 
 	// 	if validateFn() is true (either checkUsername() or checkEmail() returned true)
 	//		change the content of your new text node to 'OK'
@@ -54,7 +63,7 @@ function validateField(fieldElem, infoMessage, validateFn) {
  	//	show the new span element by setting its '.style.display' property
  	
 	// append the new span element to the DOM tree by calling 'appendChild()' on fieldElem's parentNode
-
+	fieldElem.parentNode.appendChild(newEl);
 }
 
 /* 
@@ -66,7 +75,7 @@ function validateField(fieldElem, infoMessage, validateFn) {
  */ 
 
 function checkUsername(minLength) {
-	if (elUsername.value.length < 5) {
+	if (elUsername.value.length <= 5) {
 		//Set the error message
 		return false;
 	} else {
