@@ -35,7 +35,7 @@ function validateField(fieldElem, infoMessage, validateFn) {
 	var newEl = document.createElement('span');
 
 	// create a new textnode whose content is the value of 'infoMessage' 
-	var newText = document.createTextNode('Error message');
+	var newText = document.createTextNode(infoMessage);
 
 	// append your text node to the span element
 	newEl.appendChild(newText);
