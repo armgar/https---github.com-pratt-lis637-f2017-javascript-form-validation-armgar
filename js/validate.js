@@ -1,7 +1,7 @@
 var elUsername = document.getElementbyId('username');
-var usernameMsg = '';
+var usernameMsg = 'Username must be more than 5 characters.';
 var elEmail = document.getElementbyId('email');
-var emailMsg = '';
+var emailMsg = 'Email address should contain the @ symbol.';
 
 // 2. Define functions
 
