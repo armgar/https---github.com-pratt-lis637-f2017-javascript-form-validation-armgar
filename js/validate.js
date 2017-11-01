@@ -52,7 +52,7 @@ function validateField(fieldElem, infoMessage, validateFn) {
 		}
 		else {
 			newEl.className = 'error';
-			newEl.display = 'initial';
+			newEl.style.display = 'initial';
 		}
 	}
 	// else 
