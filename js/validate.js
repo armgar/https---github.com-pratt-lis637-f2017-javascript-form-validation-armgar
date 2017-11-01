@@ -44,13 +44,15 @@ function validateField(fieldElem, infoMessage, validateFn) {
 	// hide the span by setting its '.style.display' property 
 	if (fieldElem.value.length == 0) {
 		newEl.style.display = "none";
-	} else {
+	}
+	else {
 		if (validateFn() == true) {
-			newEl.innerHTML = "OK";
-			newEl.style.className = 'ok';
-		} else {
-			newEl.style.className = 'error';
-			newEl.style.display = 'initial';
+			newText.nodeValue = "OK";
+			newEl.className = 'ok';
+		}
+		else {
+			newEl.className = 'error';
+			newEl.display = 'initial';
 		}
 	}
 	// else 
